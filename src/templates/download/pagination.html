@@ -1,0 +1,19 @@
+<ul class="pagination" style="margin:0px">
+    <li {% if page_num == 1 %}class="disabled"{% endif %}>
+        <a href="{{ requst.path }}?search={{ context.search }}&page={{ page_num|add:"-1" }}&per_page={{ context.per_page }}"
+           aria-label="Previous">
+            <span aria-hidden="true">上一页</span>
+        </a>
+    </li>
+    {% for num in page_num_list %}
+        <li {% if num == page_num %}class="active"{% endif %}><a
+                href="{{ request.path }}?search={{ context.search }}&page={{ page_num }}&per_page={{ context.per_page }}">{{ num }}</a>
+        </li>
+    {% endfor %}
+    <li {% if page_num == total_page %}class="disabled"{% endif %}>
+        <a href="{{ requst.path }}?search={{ context.search }}&page={{ page_num|add:"1" }}&per_page={{ context.per_page }}"
+           aria-label="Next">
+            <span aria-hidden="true">下一页</span>
+        </a>
+    </li>
+</ul>

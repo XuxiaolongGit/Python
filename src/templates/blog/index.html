@@ -1,0 +1,17 @@
+{% extends 'src/base_index.html' %}
+{% block title %}<title>个人站点</title>{% endblock %}
+{% block Navigation %}
+    <li class="active"><a href="{% url 'download:index' %}">PDFsource</a></li>
+    <li class="active"><a href="#">Blog</a></li>
+    <li class="active"><a href="#">Investigate</a></li>
+{% endblock %}
+
+{% block Introduction %}
+    <h1 class="cover-heading">我的博客</h1>
+    <p class="lead">由此页面进入站长博客,欢迎访客对文章内容指正，相互学习，共同进步
+    </p>
+{% endblock %}
+
+{% block enter %}
+    <a href="{% url 'blog:detail' %}" class="btn btn-lg btn-default" role="button">Enter</a>
+{% endblock %}

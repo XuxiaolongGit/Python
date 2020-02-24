@@ -1,0 +1,23 @@
+{% extends 'download/base.html' %}
+{% load customer_tags %}
+{% block title %}添加PDF{% endblock %}
+{% block PDFManage %}<a href="{% url 'download:books' %}">PDF管理 <span class="sr-only">(current)</span></a>{% endblock %}
+{% block section %}{{ section }}{% endblock %}
+{% block content %}
+    <form class="form-horizontal" method="post">
+    {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group {% if field.errors %}has-error{% endif %}">
+                {% for error in field.errors %}
+                    <label class="control-label" for="{{ field.id_for_label }}">{{ error }}</label>
+                {% endfor %}
+                <label for="{{ field.id_for_label }}" class="col-sm-2 control-label">{{ field.label }}</label>
+                <div class="col-sm-4">
+                    {% add_class field 'form-control' %}
+                </div>
+            </div>
+        {% endfor %}
+    <button type="submit" class ="btn btn-primary" style="margin-left:160px">保存</button>
+    </form>
+
+{% endblock %}

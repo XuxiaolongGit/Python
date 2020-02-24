@@ -1,0 +1,14 @@
+{% extends 'blog/base_list.html' %}
+{% block title %}<title>专栏:{{ column }}</title>{% endblock %}
+<div class="col-sm-4">
+    {% block blog_list %}
+          <div class="list-group">
+            {% for article in articles %}
+            <a href="{% url 'blog:detail2' article.id %}" class="list-group-item active">
+              <h4 class="list-group-item-heading">{{ article.title }}</h4>
+              <p class="list-group-item-text"></p>
+            </a>
+          {% endfor %}
+          </div>
+</div><!-- /.col-sm-4 -->
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block title%}<title>个人博客OwnbyXxl</title>{% endblock %}
+{% block column %}{{ column }}{% endblock %}
+{% block time %}{{ e_time |date:'m j,Y'}}{% endblock %}
+{% block content %}{{ article.body | safe }}
+{% endblock %}
+{% block columns %}
+    {% for column in columns %}
+        <li><a href="{% url 'blog:list' column.column %}">{{ column.column }}</a></li>
+    {% endfor %}
+ {% endblock %}
+                {% block elsewhere %}
+              <li><a href="#">GitHub</a></li>
+              <li><a href="{{ CSDNurl }}">CSDN</a></li>
+                {% endblock %}

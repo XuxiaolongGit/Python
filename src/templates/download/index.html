@@ -1,0 +1,18 @@
+{% extends 'src/base_index.html' %}
+
+{% block Navigation %}
+    <li class="active"><a href="#">PDFsource</a></li>
+    <li class="active"><a href="{% url 'blog:index' %}">Blog</a></li>
+    <li class="active"><a href="#">Investigate</a></li>
+{% endblock %}
+
+{% block Introduction %}
+    <h1 class="cover-heading">PDF资源</h1>
+    <p class="lead">由此页面进入PDF资源系统，注意:由于服务器下载带宽受限，
+        建议选择下载文件大小的较小的资源
+    </p>
+{% endblock %}
+
+{% block enter %}
+    <a href="{% url 'download:books' %}" class="btn btn-lg btn-default" role="button">Enter</a>
+{% endblock %}
